@@ -1,0 +1,69 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "version": "1.0.0",
+    "name": "eufaturo/vat-number-validator",
+    "description": "PHP Vat Number Validator",
+    "type": "library",
+    "keywords": [
+        "php",
+        "eufaturo",
+        "vat",
+        "vat number",
+        "vat-number",
+        "vat validator",
+        "vat-validator"
+    ],
+    "homepage": "https://eufaturo.pt",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruno Gaspar",
+            "email": "bruno@eufaturo.pt",
+            "homepage": "https://eufaturo.pt"
+        }
+    ],
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "eufaturo/coding-standards": "dev-main",
+        "phpunit/phpunit": "^11.0|^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eufaturo\\VatNumberValidator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eufaturo\\VatNumberValidator\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit -c phpunit.dist.xml",
+        "test:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "./vendor/bin/phpunit -c phpunit-coverage.dist.xml"
+        ],
+        "ecs:fix": "./vendor/bin/ecs --fix",
+        "ecs:check": "./vendor/bin/ecs",
+        "phpstan:check": "./vendor/bin/phpstan analyse --ansi",
+        "phpstan:generate-baseline":  "./vendor/bin/phpstan --generate-baseline",
+        "rector:fix": "./vendor/bin/rector process --ansi",
+        "rector:check": "./vendor/bin/rector process --ansi --dry-run"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "eufaturo/coding-standards": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "stable"
+}
