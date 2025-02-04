@@ -1,0 +1,10 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:recommended"],
+    "labels": ["changelog:dependencies"],
+    "branchConcurrentLimit": 1,
+    "dependencyDashboard": true,
+    "rangeStrategy": "auto",
+    "reviewersFromCodeOwners": true,
+    "semanticCommits": "enabled"
+}
