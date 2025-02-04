@@ -1,0 +1,23 @@
+policies:
+  - type: commit
+    spec:
+      header:
+        length: 72
+        imperative: false
+        invalidLastCharacters: ".?:!$"
+      body:
+        required: true
+      dco: false
+      gpg: false
+      maximumOfOneCommit: false
+      conventional:
+        types:
+          - ci
+          - chore
+          - docs
+          - feat
+          - fix
+          - style
+          - test
+        scopes:
+          - ".*"
