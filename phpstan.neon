@@ -1,0 +1,16 @@
+includes:
+    - ./vendor/eufaturo/coding-standards/extension-for-php.neon
+    - ./phpstan-baseline.neon
+
+parameters:
+    paths:
+        - src/
+        - tests/
+
+    level: 10
+
+    parallel:
+        processTimeout: 300.0
+
+    ignoreErrors:
+        - '#Dynamic call to static method PHPUnit\\Framework\\.*#'

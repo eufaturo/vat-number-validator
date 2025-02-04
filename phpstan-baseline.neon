@@ -1,0 +1,25 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Comparison operation "\<" between 4 and int\<5, 10\> is always true\.$#'
+			identifier: smaller.alwaysTrue
+			count: 1
+			path: src/CheckDigitValidators/LatviaCheckDigitValidator.php
+
+		-
+			message: '#^Binary operation "%%" between non\-falsy\-string and 97 results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/CheckDigitValidators/NetherlandsCheckDigitValidator.php
+
+		-
+			message: '#^Binary operation "%%" between string and 97 results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/CheckDigitValidators/NetherlandsCheckDigitValidator.php
+
+		-
+			message: '#^Binary operation "\." between mixed and string results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/CheckDigitValidators/NetherlandsCheckDigitValidator.php
