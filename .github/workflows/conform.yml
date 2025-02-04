@@ -1,0 +1,27 @@
+name: Conform
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conform:
+    if: github.event_name == 'pull_request' && github.head_ref != 'main' && !contains(github.event.pull_request.head.ref, 'renovate')
+    timeout-minutes: 30
+
+    name: Conform
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Conform Action
+        uses: siderolabs/conform@v0.1.0-alpha.29
