@@ -25,14 +25,14 @@ jobs:
 
     name: PHP ${{ matrix.php }}
 
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.composer/cache/files
           key: composer-dependencies-php-${{ matrix.php }}-${{ hashFiles('composer.json') }}
@@ -51,6 +51,6 @@ jobs:
             {
               "github-oauth": {"github.com": "${{ secrets.EUFATURO_BOT_PAT }}"}
             }
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@4.0.0
 
       - run: ${{ matrix.actions.run }}
