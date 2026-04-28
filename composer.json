@@ -60,10 +60,5 @@
             "eufaturo/coding-standards": true
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-main": "1.0.x-dev"
-        }
-    },
     "minimum-stability": "stable"
 }
