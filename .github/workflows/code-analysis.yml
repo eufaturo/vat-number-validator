@@ -1,10 +1,9 @@
 name: Code Analysis
 
 on:
-  # push:
+  push:
+    branches: [main]
   pull_request:
-  # schedule:
-  #   - cron: '0 9 * * *'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -44,12 +43,11 @@ jobs:
           key: composer-dependencies-php-${{ matrix.php }}-${{ hashFiles('composer.json') }}
 
       - name: Set up PHP
-        env:
-          PHP_VERSION: ${{ matrix.php }}
-        run: bash ${PWD}/.github/scripts/setup-php.sh
-
-      - name: Install Composer
-        run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, xml
+          coverage: none
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@4.0.0
