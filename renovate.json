@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "local>eufaturo/renovate-config"
+    "local>bluebeetlept/renovate-config",
+    "local>bluebeetlept/renovate-config:php"
   ],
   "rangeStrategy": "auto"
 }
